@@ -1,38 +1,80 @@
-import "./App.css";
-
 import Header from "./components/Header";
 import DisplayAlgo from "./components/DisplayAlgo";
 import DisplayAlgoLine from "./components/DisplayAlgoLine";
 import Footer from "./components/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+import "./App.css";
 
 function App() {
-  const numRow = Math.floor(window.innerWidth / 11);
+  // let tempWidth = 0;
+
+  const buttons = document.querySelectorAll("button");
+
+  const [numRows, setNumRows] = useState(window.innerWidth / 6);
   const [runningAlgorithm, setRunningAlgorithm] = useState(false);
-  const [rows, setRows] = useState([]);
   const [arrayAccessCounter, setArrayAccessCounter] = useState(0);
   const [comparisonCounter, setComparisonCounter] = useState(0);
+  const [widths, setWidths] = useState(5);
+  const [rows, setRows] = useState([]);
+  const [speed, setSpeed] = useState(500);
+
   //_____________________Functions________________________________________
 
   //randomize graph
   const randomize = () => {
+    console.log(widths);
     const tempArr = [];
-    for (var i = 0; i < numRow; i++) {
+    for (var i = 0; i < numRows; i++) {
       tempArr.push({
         height: Math.floor(Math.random() * 500),
+        width: widths,
         id: i,
       });
     }
-    setRows((rows) => tempArr);
+    setRows(tempArr);
   };
 
   //setStates running program
   const changeRunningAlgorithm = (running) => {
+    setRunningAlgorithm(running);
+
     if (running) {
-      setRunningAlgorithm(true);
+      buttons.forEach((button) => {
+        button.style.setProperty("--button-background-color", "#d40303");
+        document.getElementById("widths").disabled = true;
+        document.getElementById("speeds").disabled = true;
+      });
     } else {
-      setRunningAlgorithm(false);
+      buttons.forEach((button) => {
+        button.style.setProperty("--button-background-color", "#f6b93b");
+        document.getElementById("widths").disabled = false;
+        document.getElementById("speeds").disabled = false;
+      });
     }
+  };
+
+  const changeLineWidth = (event) => {
+    let tempWidth = event.target.value;
+    tempWidth++;
+    const tempNumRows = Math.ceil(window.innerWidth / tempWidth);
+    const tempArr = [];
+
+    for (var i = 0; i < tempNumRows; i++) {
+      tempArr.push({
+        height: Math.floor(Math.random() * 500),
+        width: tempWidth,
+        id: i,
+      });
+    }
+
+    setNumRows(tempNumRows);
+    setWidths(tempWidth);
+    setRows(tempArr);
+  };
+
+  const changeSortingSpeed = (event) => {
+    setSpeed(event.target.value);
   };
 
   //____________________Sorters_start___________________________________
@@ -46,7 +88,7 @@ function App() {
 
     var innerLoop = () => {
       //inner loop
-      for (let y = 1; y < numRow; y++) {
+      for (let y = 1; y < numRows; y++) {
         if (tempArr[y].height < tempArr[y - 1].height) {
           //swap if height is bigger
           let copy = [...tempArr];
@@ -64,11 +106,15 @@ function App() {
     };
 
     //outer loop
-    for (let i = 0; i < numRow; i++) {
-      setTimeout(innerLoop, 50 * i);
+    for (let i = 0; i < numRows; i++) {
+      const isLast = i === numRows - 1;
+
       setTimeout(() => {
-        changeRunningAlgorithm(false);
-      }, 50 * numRow);
+        innerLoop();
+        if (isLast) {
+          changeRunningAlgorithm(false);
+        }
+      }, speed * i);
     }
   };
 
@@ -84,7 +130,7 @@ function App() {
     var innerLoop = () => {
       minVal = x;
 
-      for (let i = 1 + x; i < numRow; i++) {
+      for (let i = 1 + x; i < numRows; i++) {
         if (tempArr[i].height < tempArr[minVal].height) {
           minVal = i;
         }
@@ -108,14 +154,22 @@ function App() {
     };
 
     //outerloop
-    for (let y = 0; y < numRow; y++) {
-      setTimeout(innerLoop, 50 * y);
+    for (let y = 0; y < numRows; y++) {
+      const isLast = y === numRows - 1;
       setTimeout(() => {
-        changeRunningAlgorithm(false);
-      }, 50 * numRow);
+        innerLoop();
+        if (isLast) {
+          changeRunningAlgorithm(false);
+        }
+      }, speed * y);
     }
   };
   //______________________Sorters_End______________________________
+
+  //runs only on first render
+  useEffect(() => {
+    randomize();
+  }, []);
 
   return (
     <div className='App'>
@@ -127,6 +181,8 @@ function App() {
         selectionSort={runningAlgorithm ? undefined : selectionSort}
         displayNum={comparisonCounter}
         displayArrayCount={arrayAccessCounter}
+        changeLineWidth={changeLineWidth}
+        changeSortingSpeed={changeSortingSpeed}
       />
     </div>
   );
