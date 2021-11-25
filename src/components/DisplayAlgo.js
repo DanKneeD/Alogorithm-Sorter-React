@@ -2,7 +2,7 @@ import DisplayAlgoLine from "./DisplayAlgoLine";
 import React from "react";
 
 const DisplayAlgo = ({ rows }) => {
-  console.log(rows.length + " lengthed");
+  // console.log(rows.length + " lengthed");
 
   return (
     <div className='DisplayAlgo'>

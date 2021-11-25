@@ -14,7 +14,12 @@ const Footer = ({
       <button onClick={sort}>Randomize </button>
       <button onClick={bubbleSort}> Bubble Sort</button>
       <button onClick={selectionSort}>Selection Sort</button>
-      <div className='displayDiv'> Number of comparisons {displayNum}</div>
+    </div>
+  );
+};
+/* 
+
+<div className='displayDiv'> Number of comparisons {displayNum}</div>
       <div className='displayDiv'>
         Number of Access's to Array {displayArrayCount}
       </div>
@@ -31,8 +36,8 @@ const Footer = ({
         <option value='100'>100</option>
         <option value='150'>150</option>
       </select>
-
-      <label for='speeds'> Sorting Speed</label>
+      
+        <label for='speeds'> Sorting Speed</label>
       <select name='speeds' id='speeds' onChange={changeSortingSpeed}>
         <option value='5'>5</option>
         <option value='10'>10</option>
@@ -44,7 +49,5 @@ const Footer = ({
         <option value='100'>100</option>
         <option value='150'>150</option>
       </select>
-    </div>
-  );
-};
+      */
 export default Footer;

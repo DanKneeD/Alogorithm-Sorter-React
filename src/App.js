@@ -11,13 +11,14 @@ function App() {
 
   const buttons = document.querySelectorAll("button");
 
-  const [numRows, setNumRows] = useState(window.innerWidth / 6);
+  const [numRows, setNumRows] = useState((window.innerWidth * 0.9) / 12);
+  //console.log(window.innerWidth * 0.9);
   const [runningAlgorithm, setRunningAlgorithm] = useState(false);
   const [arrayAccessCounter, setArrayAccessCounter] = useState(0);
   const [comparisonCounter, setComparisonCounter] = useState(0);
-  const [widths, setWidths] = useState(5);
+  const [widths, setWidths] = useState(10);
   const [rows, setRows] = useState([]);
-  const [speed, setSpeed] = useState(500);
+  const [speed, setSpeed] = useState(50);
 
   //_____________________Functions________________________________________
 
@@ -42,14 +43,23 @@ function App() {
     if (running) {
       buttons.forEach((button) => {
         button.style.setProperty("--button-background-color", "#d40303");
-        document.getElementById("widths").disabled = true;
-        document.getElementById("speeds").disabled = true;
+        try {
+          document.getElementById("widths").disabled = true;
+          document.getElementById("speeds").disabled = true;
+        } catch (error) {
+          console.log("catch error");
+        }
       });
     } else {
+      console.log(buttons);
       buttons.forEach((button) => {
         button.style.setProperty("--button-background-color", "#f6b93b");
-        document.getElementById("widths").disabled = false;
-        document.getElementById("speeds").disabled = false;
+        try {
+          document.getElementById("widths").disabled = false;
+          document.getElementById("speeds").disabled = false;
+        } catch (error) {
+          console.log("catch error");
+        }
       });
     }
   };
@@ -107,7 +117,7 @@ function App() {
 
     //outer loop
     for (let i = 0; i < numRows; i++) {
-      const isLast = i === numRows - 1;
+      const isLast = i > numRows - 2;
 
       setTimeout(() => {
         innerLoop();
@@ -155,7 +165,8 @@ function App() {
 
     //outerloop
     for (let y = 0; y < numRows; y++) {
-      const isLast = y === numRows - 1;
+      const isLast = y > numRows - 2;
+
       setTimeout(() => {
         innerLoop();
         if (isLast) {
