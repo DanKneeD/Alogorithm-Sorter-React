@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './MainPage';
 import reportWebVitals from './reportWebVitals';
+import './Assests/Fonts/SF-Pro-Text-Black.otf'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "SF-Pro";
+  src: url("./Assests/Fonts/SF-Pro-Text-Black.otf") format("opentype");
+}
+
+.App {
+  text-align: left;
+}
+.HeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 76px;
+
+  position: absolute;
+  width: 100%;
+  height: 44px;
+  left: 0px;
+  top: 0px;
+
+  background: #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ButtonsContainer {
+  margin-right: 120px;
+}
+
+.ButtonsContainer > button {
+  position: static;
+  width: auto;
+  height: 20px;
+  left: 12px;
+  top: 0px;
+
+  /* Default / Bold / Subheadline */
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  border: none;
+  background: none;
+  /* identical to box height, or 133% */
+
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: #ffffff;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 20px;
+}
+
+.LogoContainer > img {
+  width: 150px;
+  height: auto;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
