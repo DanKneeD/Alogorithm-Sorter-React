@@ -9,13 +9,15 @@ import './MainPage.css';
 
 function App() {
   return (
-    <div >    
+    <div className="background">
+      <div className='LandingPage' >    
         <Header/>
         <Intro/>
         <Who/>
         <Invest/>
         <Contact/>
         <Footer/>
+      </div>
     </div>
   );
 }

@@ -1,27 +1,29 @@
 import React from "react";
+import IphoneIMG from "../Assests/Images/Iphone.png"
+import BackgroundCubes from "../Assests/Images/BGcubes.png"
+import HowItWork from "../Assests/Images/HowItWorks.png"
 
 function Intro(){
     return(
 <div>
     <section className="IntroUpperHalf">
+    <img src={BackgroundCubes}/>
             <section className="LeftUpper">
-                <div className="IntroTitle">An app for personalizing gifs with your face</div>
+                <div className="IntroTitle">An app for personalizing gifs with <span  style={{color: "salmon"}}>your face</span > </div>
                 <body className="IntroDiscription">DeepSwap takes your picture and swaps it into your favourite gifs you can download and share.</body>
                 <div className="IntroButtonContainer">
-                <button className="DL-IOS-BTN">Download iOS</button>
-                <button className="DL-Android-BTN">Download Android</button>
-            </div>
+                    <button >Download iOS</button>
+                    <button >Download Android</button>
+                </div>
             </section>
-            <section className="RightUpper">
-            <div>iphone pic goes here</div>
-        </section>
-    
+
+            <img className="IphoneGIF"src={IphoneIMG}/>
 
     </section>
 
     <section className="IntroLowerHalf">
-        <head> How does it work?</head>
-        <div> Step by steps goes here</div>
+        <div> How does it work?</div>
+        <img src={HowItWork}/>
     </section>
     
 </div>

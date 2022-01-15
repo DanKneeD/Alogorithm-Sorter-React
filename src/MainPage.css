@@ -6,6 +6,16 @@
 .App {
   text-align: left;
 }
+.LandingPage {
+  width: 1280px;
+  margin: auto;
+}
+.background {
+  background-color: black;
+}
+
+/*Header*/
+
 .HeaderContainer {
   display: flex;
   flex-direction: row;
@@ -22,18 +32,16 @@
 }
 
 .ButtonsContainer {
-  margin-right: 120px;
+  margin-right: 76px;
 }
 
 .ButtonsContainer > button {
   position: static;
   width: auto;
   height: 20px;
-  left: 12px;
-  top: 0px;
 
   /* Default / Bold / Subheadline */
-
+  cursor: pointer;
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -50,7 +58,7 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 0px 20px;
+  margin-left: 20px;
 }
 
 .LogoContainer > img {
@@ -60,18 +68,139 @@
   margin-top: 10px;
 }
 
+/*Intro*/
+
 .IntroUpperHalf {
   position: relative;
   background-color: #2e2e2e;
   height: 800px;
 }
 
+.IntroUpperHalf img:first-of-type {
+  position: absolute;
+  width: 851.73px;
+  height: 771px;
+  left: -33px;
+  top: -20px;
+}
+
+.IntroUpperHalf img {
+  position: absolute;
+}
+
+.LeftUpper {
+  float: left;
+  height: 99%;
+}
+.IntroTitle {
+  width: 500px;
+  height: 201px;
+  margin: 144px 76px 0px;
+  top: 208px;
+
+  backdrop-filter: blur();
+
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 67px;
+  letter-spacing: -0.5px;
+
+  color: #ffffff;
+}
+.IntroDiscription {
+  width: 456px;
+  height: 48px;
+  margin: 56px 76px 0px;
+
+  left: 76px;
+  top: 465px;
+
+  backdrop-filter: blur();
+
+  /* Default / Regular / Title3 */
+
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  /* or 120% */
+
+  letter-spacing: 0.38px;
+
+  /* white */
+
+  color: #fefefe;
+}
+.IntroButtonContainer {
+  margin: 56px 76px 0px;
+}
+
+.IntroButtonContainer button {
+  cursor: pointer;
+  display: block;
+
+  margin-top: 16px;
+
+  color: white;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  justify-content: center;
+  align-items: center;
+  padding: 18px 16px;
+
+  width: 266px;
+  height: 60px;
+
+  background: #000000;
+  border: 2px solid #fefefe;
+  backdrop-filter: blur(80px);
+  border-radius: 200px;
+}
+
+.IphoneGIF {
+  position: absolute;
+  width: 547px;
+  height: 1088px;
+  margin-top: 24px;
+  z-index: 1;
+  right: 50px;
+}
+
 .IntroLowerHalf {
+  overflow: auto;
   background-color: #000000;
   color: white;
   position: relative;
   height: 400px;
 }
+
+.IntroLowerHalf div {
+  width: 408px;
+  height: 33px;
+  margin: 80px 72px 0px;
+
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 0.36px;
+
+  /* white */
+
+  color: #fefefe;
+}
+.IntroLowerHalf img {
+  margin: 40px 72px 0px;
+}
+
+/*Intro*/
 
 .App-header {
   background-color: #282c34;
@@ -82,4 +211,5 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border: solid red;
 }

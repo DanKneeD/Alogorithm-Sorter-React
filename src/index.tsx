@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './Assests/Fonts/SF-Pro-Text-Black.otf'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode>   
     <App />
   </React.StrictMode>,
   document.getElementById('root')
