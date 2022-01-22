@@ -15,9 +15,9 @@ function Who(){
 
     <section className="WhoAreWeListContainer">
         <div>
-            <img src={Dan}  />
-            <div>Daniel Dousek</div>
-            <div>No Role</div>
+            <img src={Cube}  />
+            <div>FirstName LastName</div>
+            <div>Team Role</div>
         </div>
         <div>
             <img src={Cube}  />

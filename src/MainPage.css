@@ -6,6 +6,18 @@
 .App {
   text-align: left;
 }
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border: solid red;
+}
+
 .LandingPage {
   width: 1280px;
   margin: auto;
@@ -413,14 +425,45 @@
   border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Footer*/
+
+.FooterContainer {
+  height: 133px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+
+  text-align: center;
+  letter-spacing: -0.078px;
+
+  color: #fefefe;
+}
+
+.FooterInfoContainer {
+  margin: 32px 76px;
+}
+
+.FooterInfoContainer > * {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  width: fit-content;
+}
+
+.FooterInfoContainer > img {
+  width: 145px;
+}
+
+.FooterInfoContainer > div > p {
+  margin-right: 24px;
+}
+
+.FooterContactUsButton {
+  border: none;
+  background: none;
   color: white;
-  border: solid red;
+  font-weight: bold;
+  cursor: pointer;
+ 
 }
